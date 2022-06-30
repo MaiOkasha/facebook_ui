@@ -1,4 +1,7 @@
+import 'package:facebook_ui/widgets/StoryWidget.dart';
 import 'package:flutter/material.dart';
+
+import '../widgets/post.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({Key? key}) : super(key: key);
@@ -36,6 +39,7 @@ class _HomeScreenState extends State<HomeScreen> {
         leading: const Icon(Icons.camera_alt_rounded,
         color: Colors.black,
         ),
+
         title: Container(
 
       width: 300,
@@ -48,29 +52,36 @@ class _HomeScreenState extends State<HomeScreen> {
         style: const TextStyle(
           color: Colors.black45,
         ),
+
         decoration: InputDecoration(
           prefixIcon: const Icon(Icons.search),
           contentPadding:  const EdgeInsets.symmetric(horizontal: 10),
           hintText: 'Search',
           hintMaxLines: 1,
+
           hintStyle: const TextStyle(
             color: Colors.black54,
             fontWeight: FontWeight.w500
           ),
+
           fillColor: Colors.black12,
+
           filled: true,
+
           enabledBorder: OutlineInputBorder(
               borderRadius: BorderRadius.circular(15),
               borderSide: const BorderSide(
                 color: Colors.white,
                 width: 2,
               )),
+
           focusedBorder: OutlineInputBorder(
               borderRadius: BorderRadius.circular(5),
               borderSide: const BorderSide(
                 color: Colors.blue,
                 width: 1,
               )),
+
           disabledBorder: OutlineInputBorder(
               borderRadius: BorderRadius.circular(5),
               borderSide: BorderSide(
@@ -81,17 +92,17 @@ class _HomeScreenState extends State<HomeScreen> {
       ),
     ),
 
-    actions: [
-    Image.asset('images/messenger.png',
-    height: 30,
-    width: 40,
-    ),
+           actions: [
+              Image.asset('images/messenger.png',
+                            height: 30,
+                            width: 40,
+                         ),
 
-    ],
+                    ],
       ),
 
      body: ListView(
-       //shrinkWrap: true,
+
        physics: const AlwaysScrollableScrollPhysics(),
        scrollDirection: Axis.vertical,
 
@@ -133,201 +144,37 @@ class _HomeScreenState extends State<HomeScreen> {
          const SizedBox(height: 10,),
 
          SizedBox(
-           height: 100,
+
+           height: 140,
+          width: 100,
            child: GridView(
              gridDelegate:  const SliverGridDelegateWithFixedCrossAxisCount(
                crossAxisCount: 1,
              ),
+
              scrollDirection: Axis.horizontal,
-             children: [
-                       Stack(
-                         children: [
-                     Image.asset('images/personal.jpg',
-                     height: 500,
-    width: 400,
-    ),
-    const CircleAvatar(
-    backgroundImage: AssetImage('images/plus.png',
-    ),
-    radius: 20,
-    )
 
-    ],
-    ),
-                      Stack(
-                            children: [
-                    Image.asset('images/anita.jpg',
-                      height: 300,
-                       width: 300,
-                      ),
-            const Align(
-              alignment: AlignmentDirectional.topStart,
-              child: CircleAvatar(
-    backgroundImage: AssetImage('images/personal.jpg',
-    ),
-    radius: 15,
-    ),
-            )
+             children: const [
+                      StoryWidget(userImage: 'images/plus.png',storyImage: 'images/personal.jpg'),
+                      StoryWidget(userImage: 'images/personal.jpg', storyImage: 'images/anita.jpg'),
+                      StoryWidget(userImage: 'images/person2.jpg', storyImage: 'images/anita.jpg'),
+                      StoryWidget(userImage:'images/user4.jpg' , storyImage: 'images/r2.jfif'),
+                      StoryWidget(userImage:'images/person2.jpg' , storyImage: 'images/r2.jfif'),
+                      StoryWidget(userImage:'images/person2.jpg' , storyImage: 'images/r2.jfif'),
+                      StoryWidget(userImage:'images/person2.jpg' , storyImage: 'images/r2.jfif'),
+                      StoryWidget(userImage:'images/person2.jpg' , storyImage: 'images/r2.jfif'),
 
-    ],
-    ),
-                        Stack(
-               children: [
-    Image.asset('images/person2.jpg',
-    height: 300,
-    width: 300,
-    ),
-    const CircleAvatar(
-    backgroundImage: AssetImage('images/anita.jpg',
-    ),
-    radius: 15,
-    )
-
-    ],
-    ),
-    Stack(
-    children: [
-    Image.asset('images/r2.jfif',
-    height: 300,
-    width: 300,
-    ),
-    const CircleAvatar(
-    backgroundImage: AssetImage('images/person2.jpg',
-    ),
-    radius: 20,
-    )
-
-    ],
-    ),
-    Stack(
-    children: [
-    Image.asset('images/personal.jpg',
-    height: 300,
-    width: 300,
-    ),
-    const CircleAvatar(
-    backgroundImage: AssetImage('images/r2.jfif',
-    ),
-    radius: 15,
-    )
-
-    ],
-    ),
-
-    Stack(
-    children: [
-    Image.asset('images/person2.jpg',
-    height: 300,
-    width: 300,
-    ),
-    const CircleAvatar(
-    backgroundImage: AssetImage('images/r2.jfif',
-    ),
-    radius: 15,
-    )
-
-    ],
-    ),
-
-               
              ],
            ),
          ),
 
          const SizedBox(height: 10,),
 
-         Row(
-           children: const [
-             CircleAvatar(
-               backgroundImage: AssetImage('images/personal.jpg'),
+         const Post(name: 'Mai', userImage: 'images/user.jpg', postImage: 'images/l.jfif', noLike: '122 Comments',),
+          const Post(name: 'Roua', userImage: 'images/personal.jpg', postImage: 'images/london2.jfif',noLike: '200 comments',),
+          const Post(name: 'Doha',userImage: 'images/person2.jpg', postImage: 'images/r2.jfif',noLike: '300 Comment',),
+          const Post(name: 'Tala' , userImage: 'images/user4.jpg', postImage: 'images/r5.jfif',noLike: '199 Comments',),
 
-             ),
-
-             SizedBox(width: 10,),
-
-             Text('Jordan Praise ',
-             style: TextStyle(
-               fontWeight: FontWeight.bold,
-             ),
-             ),
-
-             Text('updated his cover photo'),
-
-             Spacer(),
-
-             Icon(Icons.more_horiz_rounded)
-           ],
-         ),
-
-
-
-         const Text('              3 min ago'),
-
-         const SizedBox(height: 10,),
-
-         Image.asset(
-           'images/l.jfif',
-        // height: 400,
-           //width: double.infinity,
-
-         ),
-
-         const SizedBox(height: 20,),
-
-         Row(
-           children: [
-             Image.asset('images/like.png',
-             height: 30,
-               width: 30,
-             ),
-
-             Image.asset('images/lovve.png',
-               height: 30,
-               width: 30,
-             ),
-
-             const Spacer(),
-
-             const Text('122 Comments',
-             style:  TextStyle(
-               color: Colors.black
-             ),
-             ),
-           ],
-         ),
-
-         const SizedBox(height: 6,),
-
-         const Divider(
-           color: Colors.black26,
-
-         ),
-
-         Row(
-           mainAxisAlignment: MainAxisAlignment.center,
-           children: [
-
-             Image.asset('images/blackLike.jfif',
-             height: 30,
-               width: 30,
-             ),
-
-             const Text('Like',
-             style: TextStyle(
-               fontSize: 18
-             ),
-             ),
-
-             const SizedBox(width: 140,),
-
-             Image.asset('images/comment.png',
-             height: 20,
-               width: 20,
-             ),
-
-             const Text('  Comment'),
-           ],
-         ),
 
         const SizedBox(height: 30,),
 
@@ -339,6 +186,7 @@ class _HomeScreenState extends State<HomeScreen> {
                  'images/person2.jpg'
                ),
              ),
+
              const SizedBox(width: 10,),
 
              Column(
@@ -395,7 +243,11 @@ class _HomeScreenState extends State<HomeScreen> {
        ],
      ),
 
+
     )
     ;
   }
 }
+
+
+

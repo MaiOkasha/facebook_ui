@@ -44,21 +44,28 @@ class _FeedScreenState extends State<FeedScreen> {
       body: ListView(
         padding: const EdgeInsets.symmetric(vertical: 20,horizontal: 20),
         children: [
+
           Row(
             children:  [
+
               const CircleAvatar(
                 maxRadius: 20,
                 backgroundImage: AssetImage(
                     'images/person2.jpg'
                 ),
               ),
+
               const SizedBox(width: 10,),
 
               Column(
+
                 mainAxisSize: MainAxisSize.min,
+
                 children: [
+
                   Row(
                     children: const [
+
                       Text('Anita Neaolas ',
                         style:  TextStyle(
                             fontWeight: FontWeight.bold,
@@ -73,9 +80,12 @@ class _FeedScreenState extends State<FeedScreen> {
                       )
                     ],
                   ),
+
                   const SizedBox(height: 8,),
+
                   Row(
                     children: const [
+
                       Text('session at',
                         style: TextStyle(
                             fontSize: 18
@@ -123,8 +133,6 @@ class _FeedScreenState extends State<FeedScreen> {
 
           const SizedBox(height: 10,),
 
-
-
           Image.asset('images/l.jfif'),
 
           const SizedBox(height: 10,),
@@ -132,6 +140,7 @@ class _FeedScreenState extends State<FeedScreen> {
           Image.asset('images/OIP.jfif'),
 
           const SizedBox(height: 20,),
+
           Row(
             children: [
               Image.asset('images/like.png',
@@ -163,11 +172,9 @@ class _FeedScreenState extends State<FeedScreen> {
                 height: 30,
                 width: 30,
               ),
+
               Container(
-
                 width: 340,
-
-
                 child: TextField(
 
                   controller: _commentEditingController,
@@ -188,6 +195,7 @@ class _FeedScreenState extends State<FeedScreen> {
                         color: Colors.black54,
                         fontWeight: FontWeight.w500
                     ),
+
                     fillColor: Colors.black12,
                     filled: true,
 
